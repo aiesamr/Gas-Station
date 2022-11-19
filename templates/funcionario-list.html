@@ -1,0 +1,67 @@
+{% extends "index.html" %}
+{% block middle-content %}
+<section class="section">
+    <div class="card p-2">
+        <div class="card-header mb-4">
+            <div class="d-flex flex-row justify-content-between">
+                <div class="w-50">
+                    <h4 class="card-title fs-3">Lista Funcionários</h4>
+                    <span class="justify-content-end"></span>
+                </div>
+                <div class="align-self-end">
+                    <div class="d-flex flex-row">
+                        <a class="btn icon icon-left btn-primary d-flex flex-row align-items-center" href="{% url 'pump:create-funcionario' %}">
+                            <span>Cadastrar Funcionário(a)</span>
+                            &nbsp;
+                            <i class="bi bi-plus-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            {% if funcionarios %}
+            
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Cpf</th>
+                        <th scope="col" colspan="2">Situação</th>
+                    </tr>
+                </thead>
+                {% for f in funcionarios %}
+                <tbody>
+                    <tr class="border-bottom">
+                        <td>{{ f.nome }}</td>
+                        <td>{{ f.cpf }}</td>
+
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+            {% else %}
+            <p>Não há profissionais por aqui.</p>
+            {% endif %}
+
+            <ul class="pagination pagination-primary justify-content-end mb-0 mt-4">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                </li>
+                {% endif %}
+
+                <li class="page-item">
+                    <a class="page-link" href="#">Página {{ page_obj.number }}</a>
+                </li>  
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock middle-content %}
