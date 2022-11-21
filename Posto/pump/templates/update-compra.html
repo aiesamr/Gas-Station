@@ -1,0 +1,69 @@
+{% extends "index.html" %}
+{% block middle-content %}
+<div class="page-heading">
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title fs-3">Cadastrar Compra</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form method="POST" class="form">
+                                {% csrf_token %}
+                                {{ form.non_field_errors }}
+                                <div class="row">
+                                    <div class="col-md-4 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.dataCompra.id }}">Data da Compra</label>
+                                            <input type="date" class="form-control" id="inputDataCompra" placeholder="Selecione a Data" {{ form.dataCompra}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.qtdd_litros.id }}">Quantidade de Litros Comprada</label>
+                                            <input type="number" class="form-control" id="inputQtdCompLts" placeholder="Digite a Quantidade" {{ form.qtdd_litros }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.preco_litro.id }}">Preço</label>
+                                            <input type="decimal" min="0" value="0" step="any" class="form-control" id="inputPreco" placeholder="Digite a Preço" {{ form.preco_litro}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.tipoGas.id }}">Tipo de Combustivel</label>
+                                            <select class="form-select" name="{{ form.tipoGas.html_name }}" id="status" {{ form.tipoGas }}</select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 d-flex justify-content">
+                                        <button type="submit" id="botao" class="btn icon icon-left btn-primary me-1 mb-1">Cadastrar Compra</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+        function(){
+           
+        }
+    );
+</script>
+
+
+
+{% endblock middle-content %}

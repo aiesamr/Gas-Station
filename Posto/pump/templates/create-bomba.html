@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+{% block middle-content %}
+<div class="page-heading">
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title fs-3">Cadastrar Bomba de Combustível</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form method="POST" class="form">
+                                {% csrf_token %}
+                                <div class="row">
+
+
+                                    <div class="col-md-6 col-6">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.tipo_combustivel.id }}">Combustível</label>
+                                            <input class="form-control" id="inputCombustivel" placeholder="Combustível" {{ form.tipo_combustivel}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-16">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.qtdd_estoque.id }}">Quantidade</label>
+                                            <input type="number" class="form-control" id="inputQuantidade" placeholder="Quantidade" {{ form.qtdd_estoque}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-16">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.capacidade.id }}">Capacidade da Bomba</label>
+                                            <input type="number" class="form-control" id="inputCapacidadeBomba" placeholder="Capacidade" {{ form.capacidade}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 d-flex justify-content">
+                                        <button type="submit" id="botao" class="btn icon icon-left btn-primary me-1 mb-1">Cadastrar Bomba</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+        function(){
+           
+        }
+    );
+</script>
+{% endblock middle-content %}

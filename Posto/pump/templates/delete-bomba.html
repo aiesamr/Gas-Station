@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% block middle-content %}
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Principal</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Remoção de Combustíveis</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="card p-2">
+            <div class="card-header">
+                <h4 class="card-title fs-3">Deletar Cadastro Bomba</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" class="form">
+                    {% csrf_token %}
+                    <div>
+                        Você tem certeza que deseja excluir o cadastro ?
+
+                        <div class="col-12 d-flex justify-content-end">
+                            <button type="submit" class="btn icon icon-left btn-danger me-1 mb-1" id="btn-delete">Deletar</button>
+
+                            <a class="btn icon icon-left btn-success me-1 mb-1" id="btn-cancel" href="{% url 'pump:funcionario-list' %}">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock middle-content %}
